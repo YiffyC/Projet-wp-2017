@@ -10,6 +10,8 @@
           <li class="taille"><a href="https://bthevenet.000webhostapp.com/?post_type=projet">|  Portfolio</a></li>
           <li class="taille"><a href="wordpress/contact">|  Contact</a></li>
           <li class="taille"><a href="wordpress/mentions">|  Mentions légales</a></li>
+          <li class="taille"><a href="wordpress/106-2">|  Plan du site</a></li>
+
       </ul>
       </div>
   </div>
@@ -53,9 +55,11 @@
 ================================================== -->
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="./Sticky Footer Navbar Template for Bootstrap_files/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+
 <script src="./Sticky Footer Navbar Template for Bootstrap_files/bootstrap.min.js"></script>
+
+
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="./Sticky Footer Navbar Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
 

@@ -1,16 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5MCCM6F');</script>
-<!-- End Google Tag Manager -->
-<script src="https://use.fontawesome.com/e5e2902e5d.js"></script>
+
+<script async src="https://use.fontawesome.com/e5e2902e5d.js"></script>
+
 <title><?php bloginfo('Site de Bérenger Thévenet') ?><?php if ( is_404() ) : ?> &raquo; <?php _e('Not Found') ?><?php elseif ( is_home() ) : ?> &raquo; <?php bloginfo('description') ?><?php else : ?><?php wp_title() ?><?php endif ?></title>
 
+<meta name="Description" content="Le portfolio de Bérenger Thévenet. Vous y retrouverez mon CV, mes compétences et mes réalisations.">
+<meta name="Keywords" content="Bérenger Thévenet portfolio photoshop création ">
+<meta name="Identifier-Url" content="http://bthevenet.000webhostapp.com/">
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,13 +24,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- <link rel="stylesheet" href="style.css" type="text/css" media="screen" />-->
 <!-- bootstrap -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+<!-- fin bootstrap   -->
+
+
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" /> -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet"> -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
 <script src="https://use.fontawesome.com/e5e2902e5d.js"></script>
@@ -55,10 +58,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
          <a class="navbar-brand" href="wordpress/home">Bienvenue</a>
        </div>
        <div id="navbar" class="collapse navbar-collapse">
-
-		<!--  class="active" -->
-	   <ul class="nav navbar-nav">
-           <li><a href="wordpress/home">Accueil</a></li>
+         
+	 <ul class="nav navbar-nav">
+           <li class="active"><a href="wordpress/home">Accueil</a></li>
            <li><a href="wordpress/cv">CV</a></li>
            <li><a href="wordpress/competences">Comp&eacute;tences</a></li>
            <li><a href="https://bthevenet.000webhostapp.com/?post_type=projet">Portfolio</a></li>
