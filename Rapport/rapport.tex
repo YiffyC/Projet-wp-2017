@@ -1,0 +1,285 @@
+\documentclass{article}
+
+
+\usepackage{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+
+
+\title{Rapport de projet de site web portfolio.}
+\author{Bérenger Thévenet}
+\date{7 mars 2017}
+
+
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+%%%%%%%%%%  I. pres du projet %%%%%%%%%%
+\section{Présentation du projet}
+%%%%%%%%%%  I.1  rappel sujet %%%%%%%%%%
+\subsection{Rappel su sujet}
+
+Lors de ce projet, il nous a été demandé de réaliser un site web portfoilo qui aura pour fonction d'être hébergé afin d'avoir un site personnel sur lequel afficher nos compétences, nos diplômes, et nos réalisations, qu'elles soient issues de notre cursus universitaire ou non. Ce projet à été supervisé par Mr. Olivier Morin \textit{(Chef de projet)}, Mme Lylia Gouaich-Abrouk \textit{(Co-directrice)} et Mme Sandrine Lanquetin \textit{(Co-directrice)}.
+
+%%%%%%%%%%  I.2 softs %%%%%%%%%%
+\subsection{Logiciels utilisés}
+Pour mener à bien ce projet, j'ai utilisé les logiciels suivants:
+\begin{itemize}
+    \item La plateforme de développemant MAMP, pour faire fonctionner mes scripts PHP en local.
+    \item Le logiciel Adobe Photoshop, pour le côté graphique (création du favicon, découpe de la maquette).
+    \item Les navigateurs Mozilla Firefox, Google Chrome, Safari et Internet Explorer pour les différents tests de compatibilité.
+    \item GitHub pour la gestion de version de mon projet.
+    \item Le logiciel Wordpress pour gérer le site.
+
+\end{itemize}
+
+
+%%%%%%%%%%  II. integration de la maquette %%%%%%%%%%
+\section{Intégration de la maquette}
+\subsection{Choix de la maquette}
+
+Pour réaliser mon site portfolio, je me suis dirigé vers la maquette \no 1 proposée dans le sujet. Il s'agit d'un thème ayant un menu en haut qui permet de naviguer d'une page à l'autre. La palette de couleurs utilisée m'a attiré car le site est principalement gris/noir/blanc avec une couleur de contraste pour les boutons, ce qui permet un bonne visibilité, même par des personnes ayant une vue défaillante (par exempleun daltonisme). Le corps des pages est assez standard et un pieds de page qui regroupe les différentes pages du site. J'ai choisi d'y ajouter un lien vers la page des mentions légales, un lien vers le plan du site et des icônes cliquables pour me contacter sur les différents réseaux dont je me sers habituellement \textit{(DeviantArt, Twitter et GitHub)}. Le site sera composé d'une page d'accueil sur laquelle seront accessible les catégories "CV", "compétences" et "portfolio" de mon site via des boutons. Ces boutons seront accompagnés d'un texte de présentation introductif. La page "CV" sera divisée en deux parties: La première montrant mon parcours scolaire, la deuxième montrant mes expériences professionnelles. Pour la page montrant les compétences, j'ai choisi de représenter mon niveau dans chaque domaine par une barre, plus ou moins remplie.
+
+\newpage
+\begin{figure}[!h]
+\begin{center}
+\centerline{\includegraphics[height=180px] {comp.png}}
+\caption{Contenu de ma page "compétences"}
+\label{fig:my_label}
+\end{center}
+\end{figure}
+
+
+La page portfolio contiendra la liste de mes projets, classés par année et la page de contact ne contiendra qu'un formulaire permettant de m'envoyer un email.
+
+
+
+
+
+\subsection{Intégration de la maquette}
+
+Dans un premier temps j'ai intégré la maquette en HTML/CSS en utilisant le framework \textit{Bootstrap}. Pour le menu du navigation du haut, il a été créé avec la classe \textit{navbar-inverse} de Bootstrap qui permet d'intégrer dirrctement la transition vers la barre de navigation pour mobile. Les titres des différentes pages se trouvent dans une liste. Une fois passé sous Wordpress, cette en tête a été implémentée dans le \textit{header.php}, à la suite des différents CDN utilisés (Bootstrap et FontAwesome), des polices et des balises meta.
+
+\begin{figure}
+\begin{Verbatim}
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+       <div class="container">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+             <span class="sr-only">Afficher le plan du site</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="wordpress/home">Bienvenue</a>
+         </div>
+         <div id="navbar" class="collapse navbar-collapse">
+
+  	   <ul class="nav navbar-nav">
+             <li class="active"><a href="wordpress/home">Accueil</a></li>
+             <li><a href="wordpress/cv">CV</a></li>
+             <li><a href="wordpress/competences">Comp&eacute;tences</a></li>
+             <li><a href="wordpress/portfolio">Portfolio</a></li>
+             <li><a href="wordpress/contact">Contact</a></li>
+           </ul>
+         </div>
+       </div>
+     </nav>
+  </head>
+  <body>
+\end{Verbatim}
+\caption{Menu dans le footer.php}
+\end{figure}
+
+Le \textit{footer.php} quant à lui, contient un menu "collant" au bas de la page. La liste des pages et encore une fois implémentée à l'aide de la classe \textit{navbar} de Bootstrap. Les informaitions disponibles en dessous (adresse postale, numéro de téléphonne et les liens vers les réseaux), sont implémentés dans une div contenant les classes de web responsive de bootstrap. De cette manière pour les terminaux ayant de grand, moyens et petits écrans, ces informations apparraissent sur la même ligne. Pour les très petits écrans chaque nouvelle information est mise à la ligne.
+
+\begin{figure}
+\begin{Verbatim}
+  <div class="cold-md-4 col-lg-4 col-sm-4 col-xs-12">
+        <div class="Centre">
+          <span class="glyphicon glyphicon-earphone marge" aria-hidden="true">
+          </span> +33 (0)6 43 54 55 89</div>
+  </div>
+\end{Verbatim}
+\caption{Exemple de la ligne téléphonne dans le footer.php}
+\end{figure}
+
+Ici la classe glyphicon utilisée correspond à la petite icône présente avant le numéro de téléphonne. Ces icônes font partie intégrentes de Bootstrap. Cependant, j'ai aussi utilisé les icônes fournies par FontAwesome. Les icônes de FontAwesome s'utilisent comme suit:
+\begin{figure}
+\begin{Verbatim}
+  <i class="fa fa-deviantart" aria-hidden="true"></i>
+\end{Verbatim}
+\caption{Utilisation d'une icône fournie par FontAwesome.}
+\end{figure}
+
+Le template pour la page d'accueil est assez simple. Dans la version HTML/CSS, les menus du haut et debas étaient inclus dans chaque page. Une fois l'intégration sur wordpress commencée, et ces menus ayant été déplacés dans le \textit{header.php} et le \textit{footer.php}, il suffit d'appeller ces deux fonctions à chaque chargement de page.
+
+Pour pouvoir définir un template, il suffit de modifier le fichier \textit{page.php} en y ajoutant au début \textit{$<?php get_header(); ?>$} et \textit{$<?php get_footer(); ?>$} à la fin pour pouvoir récupérer le header et le footer précédement implémentés. Pour remplir le corps de chaque page, il faut parcourir les pages et afficher celle dont le titre correspond à l'adresse appelée.
+
+\begin{figure}
+\begin{Verbatim}
+  <?php get_header(); ?>
+
+  	<main role="main">
+  		<section>
+  		<br><br>
+  		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+  			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  				<?php the_content(); ?>
+  				<br class="clear">
+  			</article>
+  		<?php endwhile; ?>
+  		<?php else: ?>
+  			<article>
+  				<h2><?php _e( 'Rien à afficher', 'html5blank' ); ?></h2>
+  			</article>
+  		<?php endif; ?>
+  		</section>
+  	</main>
+
+  <?php get_footer(); ?>
+\end{Verbatim}
+\caption{Contenu de page.php}
+\end{figure}
+
+Une fois ce fichier opérationnel, il faut créer des pages via le panneau d'administrateur de wordpress. Le contenu de chaqune de mes pages est implémenté dans une \textit{<div>} de classe \textit{container}. Cette classe appartient à Bootstrap et permet de centrer le contenu sur grand écran et de le mettre aux bonnes proportions sur des écrans plus petits.
+\newline La page d'accueil est découpée en deux colones. une fois encore ceci a été réalisé avec les classe de web responsive de bootstrap. Sous la colonne de gauche se trouvent deux boutons qui permettent de se rendre soit sur la page CV, soit sur la page des compétences. Sous l'autre colonne se trouve un seul bouton qui permet de se rendre à la page portfolio. Pour pouvoir activer cette page en tant que page statique, il a fallu se rendre dans le menu de wordpress dans le menu de lecture et défnir cette page comme page d'accueil.  Les liens de navigation qui sont intégrés aux boutons ou aux menus sont du type \textit{wordpress/nomDeLaPage}, sauf pour se rendre sur la page du portfolio pour laquelle j'utilise dirrectement l'url complète.
+\newline La page de CV est une page assez classique pour laquelle je ne vais détailelr que la structure. Les deux grandes parties (Etudes et Expériences professionneles) sont chaquune dans une \textit{div} de classe \textit{container}. De la même manière que les botons de la page d'accueil, les durée et les lieux s'affichent en ligne si l'écran est assez grand, sinon ils s'affichent en ligne.
+\newline La page des compétences contient majotitairement des \textit{<div>} vides, qui vont permettre de créer les barres de niveau via le css.
+
+\begin{figure}
+\begin{Verbatim}
+<!-- HTML -->
+<h4>C/C++</h4>
+<div id="progressbarC">
+  <div></div>
+</div>
+
+/* CSS */
+#progressbarC {
+  background-color: #444;
+  border-radius: 13px;
+  height: 17px;
+  padding: 3px;
+}
+
+#progressbarC > div {
+   background-color: #c390d4;
+   width: 75%;
+   height: 10px;
+   border-radius: 10px;
+}
+
+\end{Verbatim}
+\caption{Code pour la barre de progression du C/C++}
+\end{figure}
+
+Ici, la première partie du CSS définit la barre de fond, grise foncée. La deuxième partie, est la barre colorée qui va indiquée le niveau de compétence en pourcentage, ce qui permet une modification assez facile.
+
+
+\subsection{Hébergement et mise en ligne}
+
+J'ai choisi d'héberger mon site sur \textit{000webhost} qui est un hébergeur gratuit, et sans publicité. L'intégration de mon Wordpress c'est faute dirrectement. L'hébergeur supporte la plateforme et propose de l'installer dès la création de l'URL. Il m'a ensuite suffi d'exporter mes pages et mes projets, puis de les importer sur le site de l'hébergeur. Lors de la mise en ligne, je l'ai pas eu de soucis particuliers si ce n'est que pendant un moment, Wordpress refusait de reconnaître mes pages. Pour remédier à ce problème, j'ai du réexporter les pages depuis Wordpress pour les remettres et réinitialiser le Wordpress hébergé pour que tout donctionne.
+
+
+
+
+
+
+
+\section{Tests de performance}
+\subsection{GTmetrix}
+Le premier test de performance que j'ai réalisé était GTetrix. Pour passer ce test, il fallait obtenir les notes B et B dans les cathégories PageSpeed Slow et YSlow. 
+
+\begin{figure}[!h]
+\begin{center}
+\centerline{\includegraphics[height=300px] {GTmetrix.png}}
+\caption{Test validé pour GTmetrix}
+\label{fig:my_label}
+\end{center}
+\end{figure}
+
+Lors de mon premier test sur GTmetrix, j'avais obtenu les notes B et C. Pour augmenter ma note de YSlow jusqu'à B, j'ai dû supprimer les liens vers les fonts Google que j'utilisais et j'ai du configurer le fichier \textit{.htaccess} pour mettre les dates d'expiration du CSS et du javascript
+
+\begin{figure}
+\begin{Verbatim}
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType text/css "access plus 1 month"
+\end{Verbatim}
+\caption{Lignes rejoutés dans le .htaccess}
+\end{figure}
+
+J'ai du aussi enlever beaucoup de liens que j'avais créé au moment ou je faisais l'intégration du site en local, avant que je n'utilise le CDN de Bootstreap. Une fois ces liens enlevés, j'ai obtenu la note de B pour la catégorie YSLow
+
+
+\subsection{Opquast}
+
+Pour le test Opquast, le site devais obtenir la note de 8/10. J'ai passé ce test avec la note de 9.1/10. Lorsque j'ai lancé ce est la première fois, J'avais obtenu la note de 6.1. 
+\begin{figure}[!h]
+\begin{center}
+\centerline{\includegraphics[height=300px] {Opquast.png}}
+\caption{Test validé pour Opquast}
+\label{fig:my_label}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{Verbatim}
+User-Agent: *
+Disallow: wordpress/106-2
+Disallow: wordpress/mensions
+\end{Verbatim}
+\caption{Contenu du fichier robots.txt}
+\end{figure}
+
+Pour gagner des points, il m'a fallu dans un premier temps ajouter des balises \textit{<meta>} dans mon en tête. Puis il m'a fallu créer un sitemap.xml. Pour ce faire, je l'ai généré sur le site suivant: \textit{https://www.xml-sitemaps.com/}. Une fois ce sitemap.xml créé, j'ai du créer le fichier \textit{robots.txt}, dans lequel ,j'ai indiqué les pages qui ne devaient pas être indexées. La page 106-2 est la page du plan du site, et la pahe mensions et est la page des mentions légales du site.
+
+
+
+
+\newpage \subsection{PageSpeed Insights}
+Pour ce dernier test, les notes minimales étaient de 80/100 en mobile et 90/100 en bureau. 
+
+\begin{figure}[!h]
+\begin{center}
+\centerline{\includegraphics[height=300px] {pagespeed.png}}
+\caption{Test non validé pour PageSpeed Insights}
+\label{fig:my_label}
+\end{center}
+\end{figure}
+
+Pour ce test j'obtiens les notes de 66/100 pour le mobile et 86/100 pour le bureau. Les principales recommendations faites par PageSpeed Insighhts sont vis à vis de fichiers .js qui devraient être optimisés.  
+
+
+
+
+
+
+%%%%%%% Templates %%%%%%
+\begin{figure}
+\begin{Verbatim}
+
+\end{Verbatim}
+\caption{Legende}
+\end{figure}
+
+\newpage
+\begin{figure}[!h]
+\begin{center}
+\centerline{\includegraphics[height=180px] {gantt.png}}
+\caption{Diagramme de Gantt}
+\label{fig:my_label}
+\end{center}
+\end{figure}
+%%%%%%% Fin templates
+
+
+\end{document}
+
